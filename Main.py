@@ -37,10 +37,9 @@ def main():
                 print("Entrada inválida!")
 
         elif opcao == "3":
-          print("")
-          print("")
-          carrinho.mostrar_carrinho()
-
+            print("")
+            print("")
+            carrinho.mostrar_carrinho()
 
         elif opcao == "4":
             total = carrinho.calcular_total()
@@ -49,6 +48,7 @@ def main():
                 print("")
                 print("Carrinho vazio. Adicione itens antes de finalizar.")
                 continue
+
             print("")
             print("")
             print(f"Total da compra: R${total:.2f}")
@@ -64,21 +64,14 @@ def main():
                 print(f"Desconto aplicado! Novo total: R${total:.2f}")
 
             try:
-                pago = float(input("Digite o valor pago: R$"))
-                if pago >= total:
-                    troco = pago - total
-                    print("")
-                    print("")
-                    print(f"Pagamento aprovado! Troco: R${troco:.2f}")
+                confirmacao = float(input(f"Digite o valor exato para confirmar o pagamento: R${total:.2f}\nR$"))
+                if confirmacao == round(total, 2):
+                    print("\nPagamento aprovado!")
                     carrinho.esvaziar()
                 else:
-                    print("")
-                    print("")
-                    print("Valor insuficiente. Compra não finalizada.")
+                    print("\nValor incorreto. Pagamento não autorizado.")
             except ValueError:
-                print("")
-                print("")
-                print("Valor inválido!")
+                print("\nValor inválido!")
 
         elif opcao == "5":
             print("")

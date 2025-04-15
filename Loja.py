@@ -20,7 +20,3 @@ class Loja:
             return self.produtos_disponiveis[indice]
         else:
             return None
-
-    def aplicar_desconto(self, produto, percentual):
-        desconto = produto.preco * percentual / 100
-        produto.preco -= desconto
